@@ -118,6 +118,7 @@ PREFIX void spBindTexture( SDL_Surface* texture )
 	spTexturePixel = ( Uint16* )texture->pixels;
 }
 
+#ifndef ARMCPU
 PREFIX void spClearTarget( Uint32 color )
 {
 	SDL_FillRect( spTarget, NULL, color );
@@ -125,6 +126,7 @@ PREFIX void spClearTarget( Uint32 color )
 	spHorizentalLine(spTargetPixel,0,0,spTargetScanLine*spTargetY,color,0,0,0);
 	SDL_UnlockSurface(spTarget);*/
 }
+#endif
 
 #ifdef __GNUC__
 inline Sint32 one_over_x( Sint32 x ) __attribute__((always_inline));
